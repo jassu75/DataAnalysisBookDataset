@@ -1,0 +1,63 @@
+1.What is linearity in linear regression?
+A linear regression model is a type of statistical model used to establish a relationship between a dependent variable and one or more independent variables by fitting a linear equation to the observed data
+Linearity in linear regression refers to the assumption that the relationship between Independent variables(predictors) and dependent variables(outcome) is a linear one.It means that changes in dependent variables is directly proportional to changes in independent variables.
+Mathematically, a linear relationship can be represented as:
+Y = β₀ + β₁X₁ + β₂X₂ + ... + βₖXₖ + ε
+This does not mean that the model cannot include transformations of variables(quadratic or logarithmic),but these should not violate the linear assumption.
+
+Checking the linearity assumption is a crucial step in the analysis of linear regression. This can be done through visual inspection of scatter plots of the dependent variable against each independent variable, as well as plots of the residuals (the differences between actual and predicted values) against the predicted values. If these plots show patterns that deviate from a straight line, it might suggest that the linearity assumption is not being met, and further model adjustments or transformations might be necessary.
+
+2.Impact of outliers in machine learning models.
+Outliers are data points that deviate significantly from the rest of the data in a dataset. They can have a notable impact on machine learning models, both in terms of training and prediction.
+Affects:
+a.Linear Regression:calculation of best fit line.
+b.Logistic Regression:affect the predicted probabilities and classification boundaries.
+c.Decision Trees: Outliers can create split points that are specific to those outliers, leading to overfitting and poor generalization.
+d.Random Forests: Random Forests are less prone to the effects of outliers since they aggregate the predictions of multiple trees.
+
+Strategies to reduce outliers impact
+a.Remove Outliers: If outliers are the result of errors or anomalies in data collection, removal might be appropriate. However, this should be done with caution and after careful analysis, as removing legitimate outliers could lead to bias.
+b.Feature Scaling: Appropriate feature scaling can sometimes reduce the influence of outliers.
+
+c.Ensemble Methods: Techniques like bagging (Bootstrap Aggregating) and Random Forests can mitigate the impact of individual outliers by averaging predictions across multiple models.
+
+3.Feature scaling techniques
+Feature scaling is the process of transforming the range of features (independent variables) in your dataset to a common scale. This is important in machine learning to ensure that features with different units or scales do not unduly influence the model. Common feature scaling techniques include:
+
+Min-Max Scaling (Normalization): Scales features to a specified range (e.g., [0, 1]) using the formula: 
+Xnew=(X-Xmin)/(Xmax-Xmin)
+Standardization (Z-score Scaling): Transforms features to have a mean of 0 and a standard deviation of 1 using the formula: 
+ Xnew=(X−mean(X))/std(X)
+Robust Scaling: Scales features by subtracting the median and dividing by the interquartile range (IQR). It's robust to outliers.
+Log Transformation: Useful for features with skewed distributions, taking the natural logarithm can make the distribution more symmetric.
+Box-Cox Transformation: A family of power transformations that can stabilize variance and make data more normally distributed.
+
+4.What are the common problems with decision tree and how to overcome it?
+Overfitting:
+
+a
+Problem: Decision trees have a tendency to create complex trees that can fit noise in the training data, leading to poor generalization on unseen data.
+Solution: Use techniques to control overfitting:
+Pruning: Limit the depth of the tree or remove branches that do not significantly improve the model's performance on validation data.
+Minimum Samples per Leaf: Set a minimum number of samples required to be in a leaf node, preventing the creation of small, noisy nodes.
+Minimum Samples per Split: Set a minimum number of samples required to split a node, avoiding unnecessary splits on small subsets.
+
+b
+Bias to Dominant Classes:
+
+Problem: Decision trees tend to favor dominant classes in imbalanced datasets.
+Solution: Use techniques like class weighting, resampling (oversampling minority class, undersampling majority class), or use algorithms that inherently handle class imbalance, such as Random Forests.
+
+c
+Extrapolation:
+
+Problem: Decision trees can't extrapolate well beyond the range of the training data.
+Solution: Be cautious when using decision trees for predictions outside the range of training data, or consider other modeling techniques.
+
+d
+Interpretability vs. Complexity:
+
+Problem: As decision trees become more complex, they can become harder to interpret.
+Solution: Finding the right balance between model complexity and interpretability is essential. Techniques like simplified model visualization or model explainability libraries can help.
+
+
